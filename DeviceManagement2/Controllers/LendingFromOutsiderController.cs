@@ -36,12 +36,13 @@ public class LendingFromOutsiderController : ControllerBase
             return BadRequest(ex.Message);
         }
         return Ok();
+
     }
 
     [HttpGet]
     public async Task<IEnumerable<LendingFromOutsider>> GetLendingFromOutsidersAsync()
     {
-        return await _lendingFromOutsiderRepository.GetLendingFromOutsiderAsync(); // đã khai báo ở hàng 17 => ko null
+        return await _lendingFromOutsiderService.GetLendingFromOutsiderAsync(); // đã khai báo ở hàng 17 => ko null
     }
 }
    

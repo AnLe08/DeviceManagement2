@@ -10,12 +10,10 @@ public class EquipmentEntityTypeConfigurations : IEntityTypeConfiguration<Equipm
     public void Configure(EntityTypeBuilder<Equipment> builder)
     {
         builder.HasKey(e => e.Id);
-        builder.HasOne(e => e.Specifications).WithOne().IsRequired().HasForeignKey<Equipment>(e => e.SpecificationId);
-        builder.HasOne(e => e.Supplier).WithOne().IsRequired().HasForeignKey<Equipment>(e => e.SupplierId);
+        //builder.HasOne(e => e.Specifications).WithOne().IsRequired().HasForeignKey<Equipment>(e => e.SpecificationId);
+        //builder.HasOne(e => e.Supplier).WithOne().IsRequired().HasForeignKey<Equipment>(e => e.SupplierId);
 
         builder.Property(e => e.Id).HasMaxLength(100);
-        builder.Property(e => e.SpecificationId).HasMaxLength(100).IsRequired();
-        builder.Property(e => e.SupplierId).HasMaxLength(100).IsRequired();
         builder.Property(e => e.Name).HasMaxLength(100).IsRequired();
         builder.Property(e => e.Picture).IsRequired();
         builder.Property(e => e.Status).IsRequired();

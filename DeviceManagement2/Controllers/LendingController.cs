@@ -29,7 +29,7 @@ public class LendingController : ControllerBase
     [HttpGet]
     public async Task<IEnumerable<Lending>> GetLendingAsync()
     {
-        return await _lendingRepository.GetLendingAsync();
+        return await _lendingService.GetLendingAsync();
     }
 
     [HttpPost]
@@ -41,7 +41,7 @@ public class LendingController : ControllerBase
         } 
         catch (Exception ex)
         {
-            return BadRequest(ex.InnerException.Message);
+            return BadRequest(ex.Message);
         }
         return Ok();
         

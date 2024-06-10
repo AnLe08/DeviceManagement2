@@ -32,8 +32,11 @@ builder.Services.AddScoped<ISpecificationsRepository, SpecificationsRepository>(
 builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 
 builder.Services.AddTransient<ILendingService, LendingService>();
-builder.Services.AddScoped<ILendingFromOutsiderService, LendingFromOutsiderService>();
+builder.Services.AddTransient<ILendingFromOutsiderService, LendingFromOutsiderService>();
 builder.Services.AddTransient<IProjectService, ProjectService>();
+builder.Services.AddTransient<ISpecificationsService, SpecificationsService>();
+builder.Services.AddTransient<ISupplierService, SuplierService>();
+builder.Services.AddTransient<IEquipmentService, EquipmentService>();
 
 var app = builder.Build();
 

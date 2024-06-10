@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeviceManagement2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230719060125_Init")]
+    [Migration("20231207105323_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -52,22 +52,19 @@ namespace DeviceManagement2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SpecificationId")
-                        .IsRequired()
+                    b.Property<int>("SpecificationId")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<string>("SupplierId")
-                        .IsRequired()
+                    b.Property<int>("SupplierId")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("int");
 
-                    b.Property<string>("SupplierId1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<int>("SupplierId1")
+                        .HasColumnType("int");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -199,9 +196,12 @@ namespace DeviceManagement2.Migrations
 
             modelBuilder.Entity("DeviceManagement2.Models.Specifications", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -220,9 +220,12 @@ namespace DeviceManagement2.Migrations
 
             modelBuilder.Entity("DeviceManagement2.Models.Supplier", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Addresses")
                         .IsRequired()

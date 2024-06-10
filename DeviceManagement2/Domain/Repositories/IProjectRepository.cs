@@ -1,4 +1,5 @@
-﻿using DeviceManagement2.Applicaiton.Services;
+﻿using DeviceManagement2.Applicaiton.Dtos;
+using DeviceManagement2.Applicaiton.Services;
 using DeviceManagement2.Models;
 
 namespace DeviceManagement2.Domain.Repositories;

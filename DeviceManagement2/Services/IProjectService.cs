@@ -6,5 +6,7 @@ public interface IProjectService
 {
     Task CreateProjectAsync(CreateProjectDto createProjectDtos);
     Task<IEnumerable<Project>> GetProjectAsync();
+    Task AddListAsync(IEnumerable<Project> projects);
+    Task UpdateAsync(Project project);
 }
 

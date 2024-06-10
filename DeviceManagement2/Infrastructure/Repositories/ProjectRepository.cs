@@ -1,4 +1,5 @@
-﻿using DeviceManagement2.Applicaiton.Services;
+﻿using DeviceManagement2.Applicaiton.Dtos;
+using DeviceManagement2.Applicaiton.Services;
 using DeviceManagement2.Domain.Repositories;
 using DeviceManagement2.Infrastructure.DbContexts;
 using DeviceManagement2.Models;
@@ -32,4 +33,5 @@ public class ProjectRepository : BaseRepository, IProjectRepository
     {
         _context.Projects.Add(project);
     }
+
 }

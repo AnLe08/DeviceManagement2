@@ -9,7 +9,7 @@ public class SupplierEntityTypeConfigurations : IEntityTypeConfiguration<Supplie
     public void Configure(EntityTypeBuilder<Supplier> builder)
     {
         builder.HasKey(s => s.Id);
-        builder.HasMany(s => s.Equipment).WithOne().OnDelete(DeleteBehavior.ClientSetNull).IsRequired();
+        builder.HasOne(s => s.EquipmentId).WithOne(e => e.Supplier).HasForeignKey<Equipment>(e => e.SupplierId);
 
         builder.Property(s => s.Id).HasMaxLength(100).IsRequired();
         builder.Property(s => s.Name).HasMaxLength(100).IsRequired();

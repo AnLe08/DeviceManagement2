@@ -7,6 +7,8 @@ public interface ILendingRepository : IRepository
 {
     void AddList(IEnumerable<Lending> lendings);
     void Update(Lending lending);
-    Task<IEnumerable<Lending>> GetLendingAsync();
     void CreateLendingAsync(Lending lending);
+    Task<IEnumerable<Lending>> GetLendingAsync();
+
+
 }

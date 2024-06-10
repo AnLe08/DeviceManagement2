@@ -9,6 +9,7 @@ public class SpecificationsEntityTypeConfigurations : IEntityTypeConfiguration<S
     public void Configure(EntityTypeBuilder<Specifications> builder)
     {
         builder.HasKey(sp => sp.Id);
+        builder.HasOne(sp => sp.EquipmentId).WithOne(p => p.Specifications).HasForeignKey<Equipment>(p => p.SpecificationId); 
 
         builder.Property(sp => sp.Id).HasMaxLength(100);
         builder.Property(sp => sp.Name).HasMaxLength(100).IsRequired();

@@ -41,7 +41,8 @@ namespace DeviceManagement2.Migrations
                 name: "Specifications",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Id = table.Column<int>(type: "int", maxLength: 100, nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Value = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
@@ -54,7 +55,8 @@ namespace DeviceManagement2.Migrations
                 name: "Suppliers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Id = table.Column<int>(type: "int", maxLength: 100, nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Addresses = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -120,11 +122,11 @@ namespace DeviceManagement2.Migrations
                     Status = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
                     YearSupply = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SupplierId = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    SpecificationId = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    SupplierId = table.Column<int>(type: "int", maxLength: 100, nullable: false),
+                    SpecificationId = table.Column<int>(type: "int", maxLength: 100, nullable: false),
                     LendingFromOutsiderId = table.Column<string>(type: "nvarchar(30)", nullable: false),
                     LendingId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    SupplierId1 = table.Column<string>(type: "nvarchar(100)", nullable: false)
+                    SupplierId1 = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

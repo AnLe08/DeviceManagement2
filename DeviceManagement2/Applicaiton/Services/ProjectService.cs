@@ -12,10 +12,20 @@ public class ProjectService : IProjectService
     {
         _projectRepository = projectRepository;
     }
-    //public ProjectService(IProjectService projectService)
-    //{
-    //    _projectService = projectService;
-    //}
+
+    public async Task AddListAsync(IEnumerable<Project> projects)
+    {
+        _projectRepository.AddList(projects);
+        await _projectRepository.UnitOfWork.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(Project project)
+    {
+        _projectRepository.Update(project);
+        await _projectRepository.UnitOfWork.SaveChangesAsync();
+    }
+
+
     public async Task CreateProjectAsync(CreateProjectDto createProjectDto)
     {
         
@@ -27,11 +37,36 @@ public class ProjectService : IProjectService
 
         _projectRepository.CreateProjectAsync(project);
         await _projectRepository.UnitOfWork.SaveChangesAsync();
+
+
     }
     public async Task<IEnumerable<Project>> GetProjectAsync()
     {
         return await _projectRepository.GetProjectAsync();
     }
 
+    public async Task<IEnumerable<LendingFromOutsider>> GetLendingFromOutsidersAsync()
+    {
+        var lstData = await _projectRepository.GetProjectAsync();
+        List<LendingFromOutsider> result = new List<LendingFromOutsider>();
+
+
+        foreach (var item in lstData)
+        {
+            var lending = new LendingFromOutsider(
+                lendingedDate: DateTime.Now,
+                borrower: "",
+                reason: "",
+                project: item,
+                equipment: new List<Equipment>(),
+                returnedDate: DateTime.Now,
+                id: "",
+                projectId: item.Id,
+                loanCouponCode: ""
+            );
+            result.Add(lending);
+          
+        }
+        return result;
+    }
 }
-    

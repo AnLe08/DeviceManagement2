@@ -27,4 +27,8 @@ public class SupplierRepository : BaseRepository, ISupplierRepository
     {
         _context.Suppliers.Update(supplier);
     }
+    public void CreateSupplierAsync(Supplier supplier)
+    {
+        _context.Suppliers.Add(supplier);
+    }
 }

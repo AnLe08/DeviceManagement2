@@ -2,7 +2,10 @@
 
 namespace DeviceManagement2.Domain.Repositories;
 
-public interface IEquipmentRepository
+public interface IEquipmentRepository : IRepository
 {
-    public Task<IEnumerable<Equipment>> GetAllAsync();
+    void AddList(List<Equipment> equipmentList);
+    void Update(Equipment equipment);
+    void CreateEquipmentAsync(Equipment equipment); 
+    Task<IEnumerable<Equipment>> GetEquipmentAsync();
 }

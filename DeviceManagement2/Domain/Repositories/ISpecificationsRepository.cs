@@ -2,7 +2,8 @@
 
 namespace DeviceManagement2.Domain.Repositories;
 
-public interface ISpecificationsRepository
+public interface ISpecificationsRepository :IRepository
 {
-    Task<IEnumerable<Specifications>> GetAllAsync();
+    Task<IEnumerable<Specifications>> GetSpecificationsAsync();
+    void CreateSpecificationsAsync (Specifications specifications);
 }
